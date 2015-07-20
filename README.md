@@ -1,6 +1,8 @@
 Tema 'Guarani'
 ================== 
 
+<img src="https://github.com/Revoada/guarani/blob/master/theme.jpg">
+
 This is a theme for <a href="http://www.omeka.org">Omeka</a>, made for the <a href="http://cultcampinas.org">CultCampinas</a> project. Layout desgin by Mariana Dias, development by Amarilis Camargo (@amariliscamargo), Gabriel Fedel (@gabrielfedel) & Tel Amiel (@tamielbr).
 
 To use it, just download the ZIP and unpack it into the Omeka "themes" directory. 
