@@ -14,7 +14,7 @@
         <ol class="carousel-indicators hidden-xs">
         <!-- Função criada para buscar item por tags - criando a lista bolinha automaticamente-->
             <?php 
-            $items = get_records('Item', array('tags'=>'mostrar'), 20); 
+            $items = get_records('Item', array('tags'=>'slider'), 20); 
             if ($items): ?>
                 <?php 
                  $counti = 0;
@@ -36,7 +36,7 @@
         <div class="carousel-inner">
          <!-- Função criada para buscar item por tags - pegando imagens para o slider-->
             <?php 
-            $items = get_records('Item', array('tags'=>'mostrar'), 20); 
+            $items = get_records('Item', array('tags'=>'slider'), 20); 
             if ($items): ?>
                  
                 <?php 
