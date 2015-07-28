@@ -11,17 +11,18 @@
 
 <?php
 // Original PHP code by Chirp Internet: www.chirp.com.au
-function truncateText($string, $limit, $break=" ", $pad="...")
+function truncateText($string, $limit, $break=".", $pad="...")
 {
   // return with no change if string is shorter than $limit
   if(strlen($string) <= $limit) return $string;
 
-  $string = substr($string, 0, $limit);
-  if(false !== ($breakpoint = strrpos($string, $break))) {
-    $string = substr($string, 0, $breakpoint);
+  // is $break present between $limit and the end of the string?
+  if(false !== ($breakpoint = strpos($string, $break, $limit))) {
+    if($breakpoint < strlen($string) - 1) {
+      $string = substr($string, 0, $breakpoint) . $pad;
+    }
   }
-
-  return $string . $pad;
+  return $string;
 }
 ?>
 
@@ -47,7 +48,7 @@ function truncateText($string, $limit, $break=" ", $pad="...")
           );?>
         </h2>
         <h3 style="font-weight:300;">
-          <?php $description = truncateText(nl_getExhibitField('narrative'), 300) ?>
+          <?php $description = truncateText(nl_getExhibitField('narrative'), 100) ?>
           <?php echo $description ?>
         </h3>
       <?php endforeach; ?>
