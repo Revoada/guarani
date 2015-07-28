@@ -40,16 +40,16 @@ function truncateText($string, $limit, $break=" ", $pad="...")
     <div class="pagination"><?php echo pagination_links(); ?></div>
 
       <?php foreach (loop('NeatlineExhibit') as $e): ?>
-        <h2>
+          <h2 style="font-weight:300;">
           <?php echo nl_getExhibitLink(
             $e, 'show', nl_getExhibitField('title'),
             array('class' => 'neatline'), true
           );?>
-        <h2>
-        <h4>
+        </h2>
+        <h3 style="font-weight:300;">
           <?php $description = truncateText(nl_getExhibitField('narrative'), 300) ?>
           <?php echo $description ?>
-        </h4>
+        </h3>
       <?php endforeach; ?>
 
     <div class="pagination"><?php echo pagination_links(); ?></div>
