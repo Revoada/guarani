@@ -43,7 +43,7 @@ function truncateText($string, $limit, $break=".", $pad="...")
       <?php foreach (loop('NeatlineExhibit') as $e): ?>
           <h2 style="font-weight:300;">
           <?php echo nl_getExhibitLink(
-            $e, 'show', nl_getExhibitField('title'),
+            $e, 'fullscreen', nl_getExhibitField('title'),
             array('class' => 'neatline'), true
           );?>
         </h2>
