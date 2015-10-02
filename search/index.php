@@ -3,58 +3,6 @@
                         echo head(array('title' => $pageTitle, 'bodyclass' => 'search'));
                         $searchRecordTypes = get_search_record_types();
 ?>
-<!--
-<div class="container">
-    <div class="row rowcolor">
-        <div class="col-md-12" id="topo"></div>
-        <div class="row">
-                <div class="col-md-12 espacamento_texto">
-                        <h3><?php echo $pageTitle; ?></h3>
-                        <div><?php echo search_filters(); ?></div>
-                        <?php if ($total_results): ?>
-                        <br/>
-                        <br/>
-                        <br/>
-                            <table id="search-results">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align:center;"><?php echo __('Record Type');?></th>
-                                        <th>&nbsp;</th>
-                                        <th style="text-align:center;"><?php echo __('Title');?></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $filter = new Zend_Filter_Word_CamelCaseToDash; ?>
-                                    <?php foreach (loop('search_texts') as $searchText): ?>
-                                    <?php $record = get_record_by_id($searchText['record_type'], $searchText['record_id']); ?>
-                                    <?php $recordType = $searchText['record_type']; ?>
-                                    <?php set_current_record($recordType, $record); ?>
-                                    <tr class="<?php echo strtolower($filter->filter($recordType)); ?>">
-                                        <td>
-                                            <?php echo $searchRecordTypes[$recordType]; ?>
-                                        </td>
-                                        <td>
-                                            <?php if ($recordImage = record_image($recordType, 'square_thumbnail',array('class' => 'img-circle imgi'))): ?>
-                                                <?php echo link_to($record, 'show', $recordImage, array('class' => 'img-circle imgi')); ?>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>&nbsp;&nbsp;<td>
-                                        <td><h3 class="title_ini"><div id="title_center"><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></a></h4>
-                                        </td>
-                                    </tr>
-                                    <tr><td colspan="3">&nbsp;&nbsp;</td></tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                            <?php echo pagination_links(); ?>
-                        <?php else: ?>
-                            <p><?php echo __('Your query returned no results.');?></p>
-                        <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
--->      
 <!-- Inicio do container-->
 <div class="container">
     <div class="row rowcolor">
@@ -77,11 +25,66 @@
                     <div class="col-md-3" id="circle">
                          <div id="tit_browse1">
                                 <h3 class="title_ini"><?php echo $searchRecordTypes[$recordType]; ?></h3>
+				    <?php if ($recordType == "File"):  ?>
                                     <?php if ($recordImage = record_image($recordType, 'square_thumbnail',array('class' => 'img-circle imgi'))): ?>
+					<a href="<?php echo url('/'); ?>files/original/<?php echo $record->filename; ?>" data-lightbox="<?php echo $record->filename?>" data-title="
+
+                            <?php 
+                            //Título da Imagem
+                            if ($titulo = metadata($record, array('Dublin Core', 'Title'), array('snippet'=>250))): ?>
+    
+                            <?php echo '<p>Título :&nbsp;'.$titulo.'</p>'; ?>
+
+                            <?php endif; ?>
+
+                             
+                            <?php
+                              //Descrição da Imagem
+                             if ($description = metadata($record, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+    
+                            <?php echo '<p>Descrição :&nbsp;'.$description.'</p>'; ?>
+
+                            <?php endif; ?>
+                            <?php 
+                            //Criação da Imagem
+                            if ($creator = metadata($record, array('Dublin Core', 'Creator'), array('snippet'=>250))): ?>
+    
+                            <?php echo '<p>Criador :&nbsp;'.$creator.'</p>'; ?>
+
+                            <?php endif; ?>
+                            <?php 
+                            //Direitos
+                            if ($direitos = metadata($record, array('Dublin Core', 'Rights'), array('snippet'=>250))): ?>
+    
+                            <?php echo '<p>Direitos :&nbsp;'.$direitos.'</p>'; ?>
+
+                            <?php endif; ?>
+
+                            
+
+
+">
+					<?php echo item_image('square_thumbnail', array('class' => 'img-circle imgi'),0, $record);?>
+					</a>
+
+                                    <?php 
+					//echo link_to($record, '', $recordImage, array('class' => 'img-circle imgi','data-lightbox' =>'gallery-name')); 
+					?> 
+                                    <?php else: ?>
+                                    <div style="width: 200px; height: 200px; text-align:center; padding-top:3em; background:#fff;" class="img-circle tit_b">&nbsp;</div>
+                                    <?php endif; ?>
+				    
+				<!--Else da verificaao se eh arquivo -->
+				<?php else: ?>
+
+				   <?php if ($recordImage = record_image($recordType, 'square_thumbnail',array('class' => 'img-circle imgi'))): ?>
                                     <?php echo link_to($record, 'show', $recordImage, array('class' => 'img-circle imgi')); ?>
                                     <?php else: ?>
                                     <div style="width: 200px; height: 200px; text-align:center; padding-top:3em; background:#fff;" class="img-circle tit_b">&nbsp;</div>
-                                    <?php endif; ?><!-- <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" style="width: 170px; height: 170px;" class="img-circle" />-->
+                                    <?php endif; ?>
+
+				<?php endif?>
+				
                                     <h3 class="title_ini"><div id="title_center"><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></a></h4>
                                 </div>
                         <?php $images = $searchText->Files; $imagesCount = 1; ?>
