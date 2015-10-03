@@ -854,13 +854,14 @@ select {
 /* Move a janela com informações do mapa para a direita*/
 #static-bubble {
   border-radius: 0;
-  color: #000;
   max-height: 94%;
   top: 0px;
   opacity: 1;
   right: 30px;
   max-width: 40%;
   left: auto !important;
+  background: #fff none repeat scroll 0% 0%;
+  color: #354A5B;
 }
 
 #static-bubble.selected {
@@ -889,10 +890,6 @@ select {
 }
 
 /*Fontes do bubble com informações do item no mapa*/
-#static-bubble {
-  background: #fff none repeat scroll 0% 0%;
-  color: #354A5B;
-}
 
 #static-bubble .title {
   font-weight: bold;
