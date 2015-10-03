@@ -6,14 +6,19 @@ html{
 body{
     font-family: 'Roboto', sans-serif;
     background: #EDF6EB;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 img {
     max-width: 100%;
 }
-a{
+a {
   outline: none;
+  color: #4AAAA5;
 }
+a:hover {
+  color: #354A5B;
+}
+
 .record a{
   outline: none;
 }
@@ -95,7 +100,7 @@ h2{ font-family: 'Roboto', sans-serif;
 font-weight: 600;
 }
 span{
- color:#3B4551;   
+ color:#3B4551;
 }
 .title_ini a{
 color: #353F4F;
@@ -177,7 +182,7 @@ opacity: 0; /*esta para os demais browsers*/
 [role="menu"] .dropdown-menu li a:hover {
     /*color: #35404F;*/
     background-color: #D4EFED;
-    
+
 }
 #rede a{
   outline:none;
@@ -324,7 +329,7 @@ opacity: 0; /*esta para os demais browsers*/
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    margin:0px 12px 0px 8px; 
+    margin:0px 12px 0px 8px;
     padding:0px;
     width:100%;
 }
@@ -400,7 +405,7 @@ opacity: 0; /*esta para os demais browsers*/
     cursor:pointer;
     font-weight:bold;
     font-size:14px;
-    color:#c30; 
+    color:#c30;
     margin-top:15px;
 }
 #toggle_class{
@@ -424,7 +429,7 @@ opacity: 0; /*esta para os demais browsers*/
 #toggle_class a:hover{
      background-color: #4AAAA5;
 
-     
+
 }
 .clicado{
   background-color: #4AAAA5;
@@ -440,8 +445,8 @@ opacity: 0; /*esta para os demais browsers*/
   display: inline-block;
   vertical-align: middle;
   margin-left: 23%;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid #4AAAA5;
@@ -452,8 +457,8 @@ opacity: 0; /*esta para os demais browsers*/
   display: inline-block;
   vertical-align: middle;
   margin-left: 73%;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid #4AAAA5;
@@ -464,7 +469,7 @@ opacity: 0; /*esta para os demais browsers*/
 }
 #tit_browse, #tit_browse1 img{
   display: block;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto }
 #tit_browse1 {
   text-align: center;
@@ -491,7 +496,7 @@ opacity: 0; /*esta para os demais browsers*/
 }
 .tit_b{
    display: block;
-   margin-left: auto; 
+   margin-left: auto;
    margin-right: auto
 }
 /*menu superior */
@@ -514,7 +519,7 @@ opacity: 0; /*esta para os demais browsers*/
   /* content necessário para a criação de um elemento vazio */
   content: "";
 
-  width: 0; 
+  width: 0;
   height: 0;
 
   /* position: absolute para manipularmos a posição da seta */
@@ -522,7 +527,7 @@ opacity: 0; /*esta para os demais browsers*/
 
   /* Right com valor negativo para ele ficar para fora do balão de dialogo */
   right: -32px;
-  
+
   /* E aqui o truque com as bordas */
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
@@ -578,7 +583,7 @@ opacity: 0; /*esta para os demais browsers*/
 }
 #box-green p{
     text-align: left;
-   
+
 }
 #box-green span a{
   color:#FF5353;
@@ -588,7 +593,7 @@ opacity: 0; /*esta para os demais browsers*/
   margin-top: 10px;
 }
 .content{
-    display:block;  
+    display:block;
 }
 
 /* Clearfix */
@@ -651,12 +656,12 @@ nav#minimenu{
 }
 
 nav#minimenu ul {
-  margin: 0;  
-  padding:0; 
+  margin: 0;
+  padding:0;
   width: 100%;
 
-  
- 
+
+
 }
 
 nav#minimenu li{
@@ -699,12 +704,12 @@ nav#minimenu1{
 }
 
 nav#minimenu1 ul {
-  margin: 0;  
-  padding:0; 
+  margin: 0;
+  padding:0;
   width: 100%;
 
-  
- 
+
+
 }
 
 nav#minimenu1 li{
@@ -800,7 +805,7 @@ select {
         }
 /* #admin-bar { display: none; } */
 /*show.php(exhibits)-> deixa imagem redonda no exhibits */
-.exhibit-item img{ 
+.exhibit-item img{
    /* Agora a mágica */
    border-radius: 50%;
 
@@ -825,12 +830,57 @@ select {
 #margemleft{
     margin-left:1.7em;
   }
- 
+
 /*Neatline*/
 #neatline-narrative {
     height: 76%;
 }
+
+/* Muda o menu de opções do mapa para a esquerda da tela*/
+#neatline #waypoints {
+  max-width: 300px;
+  max-height: 100%;
+  top: 0px;
+  left: 50px;
+  font-size: 1.2em;
+}
+
+/* Move a janela com informações do mapa para a direita*/
+#static-bubble {
+  border-radius: 0;
+  color: #000;
+  max-height: 94%;
+  top: 0px;
+  opacity: 1;
+  right: 30px;
+  max-width: 40%;
+  left: auto !important;
+}
+
+#static-bubble.selected {
+  opacity: 1;
+}
+
+#waypoints a.title.selected {
+  background: #354A5B none repeat scroll 0% 0%;
+}
+
+#waypoints a.title {
+  line-height: 1.2em;
+}
+
+#waypoints a.title.highlighted {
+  background: #4AAAA5;
+  color: white;
+}
+
+#neatline .widget {
+  opacity: 1;
+}
+
+
 /*
+
 #neatline {
     height: 80%;
     margin-left: 23%;
