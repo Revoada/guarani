@@ -13,14 +13,18 @@ img {
 }
 a {
   outline: none;
-  color: #4AAAA5;
+  color: #354A5B;
 }
 a:hover {
-  color: #354A5B;
+  color: #4AAAA5;
 }
 
 .record a{
   outline: none;
+}
+
+p {
+  line-height: 1.2em;
 }
 
 fieldset {
@@ -99,9 +103,11 @@ h5 a{
 h2{ font-family: 'Roboto', sans-serif;
 font-weight: 600;
 }
-span{
+
+/*span{
  color:#3B4551;
-}
+}*/
+
 .title_ini a{
 color: #353F4F;
 outline: none;
@@ -878,9 +884,43 @@ select {
   opacity: 1;
 }
 
+.bubble.static {
+  opacity: 1;
+}
+
+/*Fontes do bubble com informações do item no mapa*/
+#static-bubble {
+  background: #fff none repeat scroll 0% 0%;
+  color: #354A5B;
+}
+
+#static-bubble .title {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+/* Texto do lightbox */
+#lb-caption-bold, #lb-content {
+  color: white;
+}
+
+.lb-data, .lb-caption {
+  font-size: 13px;
+  line-height: 1em;
+  /*titulo dos sliders */
+  color:#fff;
+}
+
+.lb-caption-bold {
+    font-weight: bold;
+}
+
+.lb-data .lb-details {
+  width: 200%;
+}
+
 
 /*
-
 #neatline {
     height: 80%;
     margin-left: 23%;

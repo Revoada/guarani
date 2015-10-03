@@ -173,14 +173,6 @@ body:after {
   line-height: 1.1em;
 }
 
-.lb-data .lb-caption {
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1em;
-  /*titulo dos sliders */
-  color:#fff;
-}
-
 .lb-data .lb-number {
   display: block;
   clear: left;

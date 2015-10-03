@@ -11,7 +11,7 @@
 
 ?>
 
-<?php 
+<?php
 
 $dublin_sep = all_element_texts('item',array(
   'return_type' => 'array',
@@ -40,7 +40,7 @@ if (isset($dublin_sep['Dublin Core']['Rights']))
 
 
 //php echo all_element_texts('item',array(
-//  'return_type' => 'html')); 
+//  'return_type' => 'html'));
 
 ?>
 
@@ -48,50 +48,50 @@ if (isset($dublin_sep['Dublin Core']['Rights']))
 <!-- The following returns all of the files associated with an item. -->
 <?php if (metadata('item', 'has files')): ?>
 <div id="itemfiles" class="element">
-    <?php 
+    <?php
 	set_loop_records('files', get_current_record('item')->Files);
 	foreach(loop('files') as $file): ?>
-		
+
 		<div class="file-display">
 			<!-- Display the file itself-->
-			<?php 
+			<?php
 
 				//getting data file
 				$dublin_files = all_element_texts(
-				$file, 
-				array('show_element_sets' => 
+				$file,
+				array('show_element_sets' =>
 					array ('Dublin Core'),
-					  'return_type' => 'array'));  
+					  'return_type' => 'array'));
 
 				//Verify if the file is a image, if is insert code to the lightbox
 				if (stripos(get_current_record('file')->mime_type,'image') !== false) {
 
 					//Construct label to picture view on lightbox
- 				 $label_pic = "";	
+ 				 $label_pic = "";
 					if (isset($dublin_files['Dublin Core']['Title']))
-						$label_pic = $label_pic." <span class='lb-caption-bold'>Título: </span>".$dublin_files['Dublin Core']['Title'][0]." <br/>";
+						$label_pic = $label_pic."<p><span class='lb-caption-bold'>Título: </span><span class='lb-content'>".$dublin_files['Dublin Core']['Title'][0]."</span><p>";
 					if (isset($dublin_files['Dublin Core']['Description']))
-						$label_pic = $label_pic." <span class='lb-caption-bold'>Descrição: </span>".$dublin_files['Dublin Core']['Description'][0]." <br/>";
+						$label_pic = $label_pic."<p><span class='lb-caption-bold'>Descrição: </span><span class='lb-content'>".$dublin_files['Dublin Core']['Description'][0]."</span></p>";
 
 					if (isset($dublin_files['Dublin Core']['Creator']))
-						$label_pic = $label_pic." <span class='lb-caption-bold'>Criador: </span>".$dublin_files['Dublin Core']['Creator'][0]." <br/>";			
+						$label_pic = $label_pic."<p><span class='lb-caption-bold'>Criador: </span><span class='lb-content'>".$dublin_files['Dublin Core']['Creator'][0]."</span></p>";
 					if (isset($dublin_files['Dublin Core']['Date']))
-						$label_pic = $label_pic." <span class='lb-caption-bold'>Data: </span>".$dublin_files['Dublin Core']['Date'][0]." <br/>";							
+						$label_pic = $label_pic."<p><span class='lb-caption-bold'>Data: </span><span class='lb-content'>".$dublin_files['Dublin Core']['Date'][0]."</span></p>";
 					if (isset($dublin_files['Dublin Core']['Rights']))
-						$label_pic = $label_pic." <span class='lb-caption-bold'>Direitos: </span>".$dublin_files['Dublin Core']['Rights'][0]." <br/>";		
+						$label_pic = $label_pic."<p><span class='lb-caption-bold'>Direitos: </span><span class='lb-content'>".$dublin_files['Dublin Core']['Rights'][0]."</span></p>";
 
-	
+
 
 					echo file_markup(get_current_record('file'),array('linkAttributes' => array('data-lightbox' => 'setimages', 'title' => $label_pic )));
 				}
-				else { 
-					echo file_markup(get_current_record('file')); 
+				else {
+					echo file_markup(get_current_record('file'));
 				}
 
 			?>
 			<!-- Display the file's metadata -->
 			<div class="file-metadata">
-				<?php  
+				<?php
 
 			/*verificando se possui os campos*/
 			/*depois verificar quais campos serão exibidos*/
@@ -122,8 +122,6 @@ echo $dados_neatline_pos;
 <!-- Link. -->
 <?php echo link_to(
   get_current_record('item'), 'show', 'Ver os dados desse item na nossa biblioteca digital'
-); 
+);
 
 ?>
-
-
