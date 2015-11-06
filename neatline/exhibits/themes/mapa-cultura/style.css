@@ -868,13 +868,13 @@ select {
   color: #000;
   max-height: 95%;
   top: 0px;
-  left: 70%;
-  right: 20px;
+  left: 70% !important;
+  right: 20px !important;
   max-width: 40% !important;
   /*border: 6px solid rgb(53, 74, 91) !important*/
   box-shadow: -1px 1px 3px 0px rgb(53, 74, 91);
 }
 
 #static-bubble.selected {
-  opacity: 1;
+  opacity: 1 !important;
 }
