@@ -1,4 +1,4 @@
-    <?php 
+    <?php
         echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
         /*Procurar a palavra exhibits*/
          $endereco = $_SERVER ['REQUEST_URI'];
@@ -9,13 +9,13 @@
         <!-- TITLE -->
         <div id ="title_sup" class="col-md-12">
             <h2><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h2>
-        </div> 
+        </div>
         <!-- /TITLE -->
         <!-- Carousel -->
-        <div id ="carrossel" class="col-md-12">   
+        <div id ="carrossel" class="col-md-12">
             <script type="text/javascript">
                 $(document).ready(function(){
-                            
+
                 $('.bxslider').bxSlider({
                 minSlides: 1,
                 maxSlides: 25,
@@ -31,47 +31,47 @@
 
 
                                <!-- <ul id="image-gallery" class="clearfix"></ul>-->
-                               
+
                             <!-- Fim das imagen que passaram no carrossel-->
             <ul class="bxslider">
                 <?php foreach ($images as $image): ?>
-                    <?php if ($imagesCount >=1): 
-                     
+                    <?php if ($imagesCount >=1):
+
                     ?>
                         <li><a href="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" data-lightbox="gallery-name" data-title="
 
-                            <?php 
+                            <?php
                             //Título da Imagem
                             if ($titulo = metadata($image, array('Dublin Core', 'Title'), array('snippet'=>250))): ?>
-    
+
                             <?php echo '<p>Título :&nbsp;'.$titulo.'</p>'; ?>
 
                             <?php endif; ?>
 
-                             
+
                             <?php
                               //Descrição da Imagem
                              if ($description = metadata($image, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-    
+
                             <?php echo '<p>Descrição :&nbsp;'.$description.'</p>'; ?>
 
                             <?php endif; ?>
-                            <?php 
+                            <?php
                             //Criação da Imagem
                             if ($creator = metadata($image, array('Dublin Core', 'Creator'), array('snippet'=>250))): ?>
-    
+
                             <?php echo '<p>Criador :&nbsp;'.$creator.'</p>'; ?>
 
                             <?php endif; ?>
-                            <?php 
+                            <?php
                             //Direitos
                             if ($direitos = metadata($image, array('Dublin Core', 'Rights'), array('snippet'=>250))): ?>
-    
+
                             <?php echo '<p>Direitos :&nbsp;'.$direitos.'</p>'; ?>
 
                             <?php endif; ?>
 
-                            "><?php echo 
+                            "><?php echo
 
                         item_image('square_thumbnail', array('class' => 'img-square imgi'),0, $image);
 
@@ -81,9 +81,9 @@
             </ul>
             <?php else: ?>
                 <div class="no-image"><p style="color:#fff;">Item não contém imagens.</p></div>
-            <?php endif; ?>       
-        </div> 
-    <!-- /Carousel -->              
+            <?php endif; ?>
+        </div>
+    <!-- /Carousel -->
     </div>
 </div>
 <!-- CONTENT -->
@@ -93,20 +93,20 @@
                  <!--Left side -->
                 <div class="col-md-7 col-md-offset-1">
                     <div class="row">
-                        <!--Texto conteúdo do item--> 
+                        <!--Texto conteúdo do item-->
                         <div class="col-md-10 textcontent">
                             <?php if($pos !== false){?>
                             <div id="exhibits-breadcrumb">
                                 <a href="<?php echo html_escape(url('exhibits')); ?>"><?php echo __('Exhibits'); ?></a> &gt;
                                 <a href="<?php echo html_escape(url('exhibits/show/' . $exhibit['slug']));?>"><?php echo html_escape($exhibit['title']); ?></a>
                                 <a href="<?php echo html_escape(url('exhibits/show/' . $exhibit['slug'].'/'));?>"><?php echo html_escape($exhibit['Page Slug']); ?></a>
-                                
+
                                 <p>&nbsp;</p>
                             </div>
                             <?php  } ?>
                             <?php //echo all_element_texts('item');  ?>
                             <?php echo metadata('item', array('Dublin Core', 'Description')); ?>
-                            
+
 
                             <!-- The following returns all of the files associated with an item. -->
                             <!--<?php //if (metadata('item', 'has files')): ?>
@@ -145,21 +145,21 @@
 
                             <?php //fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
                         </div>
-                            <!--Comentário--> 
+                            <!--Comentário-->
                             <div id="comentario" class="col-md-10 textcontent">
-                            <?php 
+                            <?php
                                     //Chamando o comentario
                                     CommentingPlugin::showComments();
                                      ?>
                             </div>
                             <!--/Comentário-->
-                            <!--Comente--> 
+                            <!--Comente-->
                             <div id="comente" class="col-md-11 textcontent">
                                 <div id="comente" class="col-md-9">
-                                    
+
                                 </div>
                             </div>
-                      <!--Comente--> 
+                      <!--Comente-->
                     </div>
 
                 </div>
@@ -169,24 +169,24 @@
                     <div class="row">
                         <!--Map image -->
                         <div class="col-md-12 textcontent" id="mapa">
-                            <a href="#"><img src="<?php echo img('img/veja_mapa.jpg'); ?>" />
+                            <!-- <a href="#"><img src="<?php /* echo img('img/veja_mapa.jpg'); */ ?>" /> -->
                         </div>
                         <!--/Map image -->
                         <!--Redes -->
                         <div class="col-md-12 textcontent" id="redes">
-                             <div class="pw-widget pw-counter-vertical">         
-                               <!-- <a class="pw-button-facebook pw-look-native"></a>           
-                                <a class="pw-button-twitter pw-look-native"></a>            
-                                <a class="pw-button-linkedin pw-look-native"></a>           
+                             <div class="pw-widget pw-counter-vertical">
+                               <!-- <a class="pw-button-facebook pw-look-native"></a>
+                                <a class="pw-button-twitter pw-look-native"></a>
+                                <a class="pw-button-linkedin pw-look-native"></a>
                                 <a class="pw-button-post-share"></a>  -->
-                                
+
                                 <?php echo '<div>';
                                         $item = get_current_record('item');
                                         $url = record_url($item, 'show', true);
                                         $title = strip_formatting(metadata($item, array('Dublin Core', 'Title')));
                                         $description = strip_formatting(metadata($item, array('Dublin Core', 'Description')));
                                         echo social_bookmarking_toolbar($url, $title, $description);
-                                        echo '</div>'; 
+                                        echo '</div>';
                                 ?>
                             </div>
                             <!--<script src="http://i.po.st/static/v3/post-widget.js#publisherKey=sqmvcek1s4kcf8d21388&retina=true" type="text/javascript"></script>-->
