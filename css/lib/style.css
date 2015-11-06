@@ -833,6 +833,7 @@ select {
 .copi h5{
   color: #353F4F;
 }
+
 #margemleft{
     margin-left:1.7em;
   }
@@ -852,20 +853,20 @@ select {
 }
 
 /* Move a janela com informações do mapa para a direita*/
-#static-bubble {
-  border-radius: 0 !important;
-  max-height: 94% !important;
-  top: 0px !important;
-  opacity: 1 !important;
-  right: 30px !important;
-  max-width: 40% !important;
-  left: auto !important;
-  background: #fff none repeat scroll 0% 0% !important;
-  color: #354A5B !important;
-}
+/*#static-bubble {
+  border-radius: 0;
+  color: #000;
+  max-height: 94%;
+  top: 0px;
+  opacity: 1;
+  left: 349px;
+  max-width: 40%;
+  /*border: 6px solid rgb(53, 74, 91) !important*/
+  box-shadow: -1px 1px 3px 0px rgb(53, 74, 91);
+}*/
 
 #static-bubble.selected {
-  opacity: 1!important;
+  opacity: 1;
 }
 
 #waypoints a.title.selected {
@@ -873,27 +874,31 @@ select {
 }
 
 #waypoints a.title {
-  line-height: 1.2em !important;
+  line-height: 1.2em;
 }
 
 #waypoints a.title.highlighted {
-  background: #4AAAA5 !important;
-  color: white !important;
+  background: #4AAAA5;
+  color: white;
 }
 
 #neatline .widget {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .bubble.static {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 /*Fontes do bubble com informações do item no mapa*/
+#static-bubble {
+  background: #fff none repeat scroll 0% 0%;
+  color: #354A5B;
+}
 
 #static-bubble .title {
-  font-weight: bold !important;
-  font-size: 1.3em !important;
+  font-weight: bold;
+  font-size: 1.3em;
 }
 
 /* Texto do lightbox */
