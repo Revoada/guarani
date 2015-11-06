@@ -53,8 +53,8 @@ font-weight: 600;
   color: #000;
   max-height: 95%;
   top: 0px;
-  opacity: 1;
   left: 70%;
+  right: 20px;
   max-width: 40% !important;
   /*border: 6px solid rgb(53, 74, 91) !important*/
   box-shadow: -1px 1px 3px 0px rgb(53, 74, 91);
